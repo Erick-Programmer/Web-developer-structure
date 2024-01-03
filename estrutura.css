@@ -1,0 +1,31 @@
+.padrao {
+    display: flex;
+    flex-direction: column;
+    border: dashed 3px rgb(3, 0, 5); 
+    background: lightgray; 
+}
+
+.padrao1 {
+    display: flex;
+    flex-direction: column;
+    border: dashed 2px black;
+    background: lightgray;
+}
+
+.primeira-base-container {
+    display: flex;
+    flex-direction: column;
+    border: dashed 2px rgb(5, 117, 10);
+    background: lightgreen;
+}
+
+.base-elementos {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px blue;
+    background: lightblue;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
