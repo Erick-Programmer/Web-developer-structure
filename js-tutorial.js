@@ -45,3 +45,5 @@ let ok = divide (a,b);
 
 console.log(ok);
 
+//Division by zero
+
