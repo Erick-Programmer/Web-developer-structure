@@ -87,7 +87,7 @@ for (let item of items) {
 //8 - show javascript in header 
 
 //<header>
-  //   <script></script>
+  //  <script src="document.js"></script>
 //</header>
 
 //9. upload javascript before or after of the html document
