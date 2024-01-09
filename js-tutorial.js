@@ -268,8 +268,8 @@ let num4 = 0x1a;
 console.log(num4); //26
 
 //floating
-let amount = 3.14e7; //exponential (10 ** 7)
-console.log(amount); //31400000 .... 3.14 * (10**7)
+let amount0 = 3.14e7; //exponential (10 ** 7)
+console.log(amount0); //31400000 .... 3.14 * (10**7)
 
 let amount2 = 5e-7; //5 divide it by 10.000.000
 console.log(amount2);
