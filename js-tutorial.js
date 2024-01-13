@@ -268,7 +268,6 @@ let num4 = 0x1a;
 console.log(num4); //26
 
 //26 - sum of floating value
-
 let amount0 = 3.14e7; //exponential (10 ** 7)
 console.log(amount0); //31400000 .... 3.14 * (10**7)
 
@@ -316,7 +315,7 @@ let val = 0o1234_5670;
 //hex
 let message = 0xD0_E0_F0;
 
-//29 - octal literal 0 - 7   
+//29 - octal literal 0 - 7
 let a = 051;
 console.log(a); //41
 
@@ -658,3 +657,137 @@ b = c; // b is 30;
 a = b; // a is 20;
 
 //51 - unary operators
+let x = 10;
+let y = x+;
+console.log(y); //10 (nothing happened)
+
+let x = '10';
+let y = +x; 
+console.log (y); // 10 (it's changed in number), javascript engine transformed in number
+
+let f = true;
+let a = false;
+console.log(+f); //1
+console.log(+a); //0
+
+//51.1 unary operator with objects
+
+let uhu = {
+    a:'c',
+    toString: function() {
+        return '25';
+    },
+}
+
+console.log(+uhu); //25
+
+let auhu = {
+    a: 'c',
+    toString: function() {
+        return '25';
+    },
+    valueOf: function() {
+        return '30';
+    },
+}
+
+console.log(+auhu); //30
+
+//52.unary operator with other examples
+let x = 10;
+let y = -x;
+console.log(y); //-10
+
+let age = 25;
+++age;
+console.log(age); //26
+
+let weight = 90;
+--weight;
+console.log(weight); //89
+
+let web = 90;
+web = ++web + 5;
+console.log(web); //96 //first increment after sum
+
+let web = 90;
+web = --web + 5;
+console.log(web); //94 //first decrement after sum
+
+let web = 90;
+let newWeb = web++ + 5; //first sum after increment
+console.log(newWeb); //95 
+console.log(web); //91 //incremented 
+
+//53. comparison operator
+
+let r1 = 10 > 30; //false
+let r2 = 30 > 10; //true
+let r3 = 10 == 20; //false
+
+let a = 10;
+let b = 20;
+console.log(a >= b); //false;
+console.log(a == 10); //true;
+
+//54. String comparison
+
+//compare unique char by char
+let result = 'name1' < 'name3';
+console.log(result); //true;
+
+//'b' high value that 'a' 
+let f1 = 'apple',
+    f2 = 'banana';
+let result = f2 < f1;
+console.log(result); //false
+
+//first to convert in lowercase for after compare;
+let f1 = 'apple',
+    f2 = 'Banana';
+let result = f2.toLowerCase() < f1.toLowerCase();
+console.log(result); //false
+
+//when this string with number, string convert for after compare
+console.log(10 < '20'); //true;
+console.log(10 == '10');//true;
+
+//55. objects comparison
+
+let apple = {
+    valueOf: function() {
+        return 10;
+    }
+};
+
+let orange = {
+    toString: function(){
+        return '20';
+    }
+};
+
+console.log(apple > 10); //false;
+console.log(orange == 20); //true . first convert after compare it.
+
+//56. Boolean comparison
+console.log(true > 0); //true
+console.log(false < 1); //true
+console.log(true > false); //true
+console.log(false > true); //false
+console.log(true >= true); //true (OR)
+console.log(true <= true); //true
+console.log(false <= false); //true
+console.log(false >= false); //true
+
+//comparison null == undefined
+console.log (null == undefined); //true
+
+//NaN
+console.log(NaN == 1);//false
+console.log(NaN == NaN); //false
+console.log(NaN != 1);//true
+console.log(NaN != NaN) //true
+
+//===e===
+console.log('10' == 10) // true
+console.log("10" === 10) //false value and type!
