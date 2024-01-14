@@ -791,3 +791,102 @@ console.log(NaN != NaN) //true
 //===e===
 console.log('10' == 10) // true
 console.log("10" === 10) //false value and type!
+
+//57 - logic operators and && (and)
+let a = true;
+let b = false;
+console.log(!a); //false
+console.log(!b); //true
+
+//first to convert after false change
+console.log(!undefined); // true
+console.log(!null); //true
+console.log(!20); //false
+console.log(!0)// true
+console.log(!NaN) // true 
+console.log(!{}); //true empty == undefined
+console.log(!''); //true empty string == false
+console.log(!'OK'); //false
+console.log(!false); //true
+console.log(!true); //false
+
+//!! two times to convert
+let counter = 10;
+console.log(!!10); //true
+
+//operator and &&
+//true true  == true
+//true false == false (-)
+//false true == false (-)
+//false false == false (-)
+
+let a = true;
+let b = false;
+console.log(a && b); //false
+
+//58 - logic operator with variables, || (or), respect order (not, and, or)
+let b = true;
+let result = b && (1/0);
+console.log(result); //Infinity - last value return when it's true boolean.
+
+let b = false;
+let result = b && (1/0);
+console.log(result); //false , value return when it's false boolean.
+
+ //  a   b   ||
+//true true == true
+//true false == true
+//false true == true
+//false false == false.
+
+let eligible = true,
+    required = false;
+console.log(eligible || required); //true
+
+let eligible = false,
+    required = false;
+console.log(eligible || required); //true
+
+//1. Logical NOT (!)
+//2. Logical AND (&&)
+//3. Logical OR (||)
+
+//59 - logic operators assignment
+
+ //Logical Assignment Operators Logical Operators
+//x ||= y  => x || (x = y) -- if x is false => assign y on x.
+//x &&= y  => x && (x = y) -- if x is true => assign y on x.
+//x ??= y  => x ?? (x = y); -- if x is null or undefined =>  assign y on x.
+
+let title;  //variable doesn't value is false // false/off
+title ||= 'untitled'; // 1/on system
+console.log(title); //untitled
+
+let title = 'javascript awesome'; //1
+title ||= 'untitled'; //1
+console.log(title); //javascript awesome - true/on system
+
+//real example if this class doesn't content. //false - not string == 0/off system - receive value.
+document.querySelector('.search-result').textContent ||= "sorry not result found";
+
+// x &&= y  => x && (x = y). if x is true, receive value of y variable
+
+let person = {
+    firstName: 'aaa',
+    lastName: 'bbb',
+};
+
+person.lastName &&= 'smith'; //first name is true!
+console.log(person); //(2) {firstName: "aaa", lastName: "smith"...}
+
+//x => X??=y => x ?? (x=y); if x is null or undefined , x receive value of y.
+
+let user = {
+    username: 'Satoshi',
+};
+
+user.nickname ??= 'anonymous';
+console.log(user); //nickname properties doesn't declare, nickname is null then received properties.
+//{username: 'Satoshi', nickname: 'anopnymous'};
+
+
