@@ -889,4 +889,125 @@ user.nickname ??= 'anonymous';
 console.log(user); //nickname properties doesn't declare, nickname is null then received properties.
 //{username: 'Satoshi', nickname: 'anopnymous'};
 
+//60 - logic operator part II
+
+//if value 1 is null it's return value 2;
+let value1 = null,
+    value2 = '2';
+let variable1 = value1 ?? value2; //if value is null, return value 2.
+console.log(variable1); // 2 
+
+const nameR = null ?? 'John'; //if nameR is null it will return john
+console.log(nameR); //John
+
+const ageR = undefined ?? 28;
+console.log(ageR); //28
+
+//number 1 is true, not null then console.log('Hi') == false
+let resultOne = 1 ?? console.log('Hi'); // 1
+
+let bbb = undefined ?? console.log('Hi'); // Hi
+
+//61. logic operator / can't combine AND and OR
+const result = null || undefined ?? 'Ok'; //SyntaxError
+
+//you can to writing this operation 
+const result = (null || undefined) ?? 'Ok'; //if result is null or undefined receive 'ok'
+console.log(result); //Ok
+
+//61 - exponential operator
+let resulting = Math.pow(2,2);
+console.log(resulting); // 4
+
+let result = 2n ** 3n;
+console.log(result); // 8n
+
+//incremented
+let x = 2;
+x **= 4; //x = x ** 4
+console.log(x); //16
+
+//syntaxError:
+let x = -2 ** 3; 
+console.log(x); //syntax error
+
+let x = (-2) ** 3; 
+console.log(x); // -8
+
+//62 - if statement 
+let age = 18;
+if (age >= 18) {
+    console.log('You can sign up');
+}
+//You can sign up
+
+var age = 20; 
+function compare(x) {
+  if (x >= 18) {
+    console.log('You can sign up');
+  }
+}
+
+var show = compare(age); //you can sign up
+
+//63 - nested if statement
+let age = 16;
+let state = 'CA';
+if (state == 'CA') {
+    if (age >= 16) {
+        console.log('You can drive');
+    }
+}
+//you can drive
+
+//64 - if - else
+let age = 18;
+if (age >= 18) {
+    console.log('a');
+} else {
+    console.log('b');
+}
+//a
+
+let age = 16;
+let state = 'CA';
+
+if(state == 'CA' && age == 16) {
+    console.log('You can drive');
+} else {
+    console.log('You are not eligible to get a driving license');
+}
+
+//65 - if else if
+let month = 6;
+let monthName; //declared undefined
+
+if (month == 1) {
+    monthName = 'Jan';
+} else if (month == 2) {
+    monthName = 'Feb';
+} else if (month == 3) {
+    monthName = 'Mar';
+} else if (month == 4) {
+    monthName = 'Apr';
+} else if (month == 5) {
+    monthName = 'May';
+} else if (month == 6) {
+    monthName = 'Jun';
+} else if (month == 7) {
+    monthName = 'jul';
+} else if (month == 8) {
+    monthName = 'Ago';
+} else if (month == 9) {
+    monthName = 'Set';
+} else if (month == 10) {
+    monthName = 'Oct';
+} else if (month == 11) {
+    monthName = 'Nov';
+} else if (month == 12) {
+    monthName = 'Dec';
+}
+console.log(monthName);
+//Jun
+
 
