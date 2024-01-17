@@ -1010,4 +1010,291 @@ if (month == 1) {
 console.log(monthName);
 //Jun
 
+//66 - if else if example - calculate the body mass index (BMI)
 
+let weight = 70;
+let height = 1.72;
+let weightStatus; //undefined
+
+let bmi = weight / (height * height);
+
+if (bmi < 18.5) {
+    weightStatus = 'Underweight';
+} else if (bmi > 18.5 && bmi <= 24.9) {
+    weightStatus = 'Healthy Weight';
+} else if (bmi > 25 && bmi <= 29.9) {
+    weightStatus = 'Overweight';
+} else {
+    weightStatus = 'obesity';
+}
+
+console.log(weightStatus); //Healthy Weight
+
+//67 - ternary operator
+let age = 18;
+let message;
+
+age >= 18 ? (message = 'You can drive') : (message = 'You cannot drive');
+console.log(message); //You can drive 
+
+//or
+
+message = age >= 16 ? 'You can drive' : 'You cannot drive';
+console.log(message); //'You can drive'
+
+//Syntax ternary operator ]
+//it's condition can to come before or after
+
+//condition ? expression True : expression False 
+//let variableName = condition ? expression True : expressionFalse.
+
+
+//68 - ternary operator .. simplification - multiples
+let authenticated = true;
+let nextUrl = authenticated  //don't put comma;
+? (alert('you will redirect to admin area'), '/admin')  //if it's true will receive '/admin'
+: (alert('acess denied'), '/403'); //if it's not will receive '/403'
+
+console.log(nextUrl); //'/admin
+
+//simplification
+let locked = 1;
+let canChange = locked != 1 ? true : false;
+
+//more simplifier
+let locked = 1;
+let canChange = locked =! 1;
+console.log(canChange); //false
+
+//multiples ternary operator
+let speed = 90;
+let message = speed >= 120 ? 'Too fast' : speed >= 80 ? 'Fast' : 'ok'; //or , else if ..else..
+console.log(message); //Fast
+
+//if a logic contain if else statement , avoid ternary operator.
+
+//69 - spread operator
+//syntax ...  used to list
+
+let colors = ['red', 'blue', 'green'];
+let rgb = [...colors]; //copy
+console.log(rgb); //['red', 'blue', 'green']
+
+//merge with spread operator
+let rgb = ['red', 'blue', 'green', 'orange'];
+let cmyk = ['red', 'blue', 'green', 'magenta', 'black'];
+let merge = [...rgb, ...cmyk];
+console.log(merge); 
+//["red", "blue", "green", "orange", 'red', 'blue', 'green', 'magenta', 'black']
+
+//70 - spread operator with objects
+
+const circle = {
+    radius: 10,
+};
+
+const coloredCircle = {
+    ...circle,  //copy of the property
+    color: 'black',
+};
+
+console.log(coloredCircle); //{radius: 10, color: "black"}
+
+const circle1 = {
+    radius: 10,
+    style: {
+        color: 'blue',
+    }
+};
+
+const coloredCircle = {...circle1};
+coloredCircle.style = 'red';
+console.log(coloredCircle); //{radius: 10, style: "red"}
+
+//merge of the objects
+const circle2 = {
+    radius: 10,
+};
+
+const coloredCircle1 = {
+    backgroundColor: 'black',
+};
+
+const solidCircle1 = { //object make from two objects.
+    ...circle2, 
+    ...coloredCircle1,
+};
+
+console.log(solidCircle1);
+//{radius: 10, backgroundColor: "black...}
+
+//71. (...)Spread - superficial copy vs Object assign / Cloning
+
+// spread ... define a new property
+//Object. assign () define assign value.
+
+//target objects with Getters and Setters
+class Circle {
+    constructor(radius) {
+        this.radius = radius; //attribute associated with arguments of the constructor
+    }
+    set diameter(value) {
+        this.radius = value / 2;
+        console.log('SET', value);
+    } 
+    get diameter(){
+        return this.radius * 2;
+    }
+
+};
+
+let circle = new Circle(100); //instance/object
+
+console.log(circle); //Circle {radius: 100}
+
+
+let cloneCircle1 = Object.assign(circle, {  //cloning of the circle object
+    diameter: 200 //define property object cloneCircle1 with set method
+});
+
+let cloneCircle2 = {  //superficial copy!
+    ...circle
+};
+
+ // SET 200
+
+ //72. Target object only read. (constant); defineProperty() - property.
+
+const blueSquare = { //object only read, it's constant.
+    length: 100,    //continue normally, it's don't will change
+    color: 'blue',
+ };
+
+ Object.defineProperty(blueSquare, 'color', {
+    value: 'blue',
+    enumerable: true,   //true: allow property to be has iterate in loops (example for..in)
+    writable: false, //false: property don't to be changed after to be defining.
+ });
+
+console.log(blueSquare); //{length: 100, color: "blue"}
+
+//73. MERGE with (...) Spread Operator is POSSIBLE! 
+const style = {
+    color: 'green',
+};
+
+const greenSquare = {
+    ...blueSquare,
+    ...style,
+};
+
+console.log(greenSquare); // {length: 100, color: "green"}
+
+//merge with spread(...) cloning don't be dive, shallow!
+
+//74. Object Assign with constant
+
+const blueSquare = { 
+    length: 100,   
+    color: 'blue',
+  };
+  
+redSquare = Object.assign(blueSquare, {
+    color: 'red',
+  });
+  
+console.log(redSquare); //{length: 100, color: "red"}.
+
+//Object.assign, it's define to new value for a property.
+
+//75. Switch Case
+//syntax
+switch(expression) {
+    case value1:
+        statement1;
+        break;
+    case value2:
+        statement2;
+        break
+    default:
+        statement3;
+        break;
+}
+
+//it's similar 
+if (expression === value1) { //can to be used ===
+    statement1;
+} else if (expression === value2) {
+    statement2;
+} else {
+    statement3;
+}
+
+//75.1 switch case example:
+let day = 3;
+let dayName;
+
+switch(day) {
+    case 1:
+        dayName = 'Sunday';
+        break;
+    case 2:
+        dayName = 'Monday';
+        break;
+    case 3:
+        dayName = 'Tuesday';
+        break;
+    case 4:
+        dayName = 'Wednesday';
+        break;
+    case 5:
+        dayName = 'Thurday';
+        break;
+    case 6:
+        dayName = 'Friday';
+        break;
+    case 7:
+        dayName = 'Saturday';
+        break;
+    default:
+        dayName = 'Invalid day';
+}
+
+console.log(dayName); //'Tuesday'
+
+//75. switch case example II
+
+let year = 2016;
+let month = 2;
+let dayCount;
+
+switch(month){  
+    case 1: 
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        dayCount = 31; 
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        dayCount = 30; 
+        break;
+    case 2:
+            //(true       &&         false       ||  false ) == true => dayCount 29.
+        if((year % 4 == 0 && !(year % 100 == 0)) || year % 400 == 0){ //first AND operator, after OR
+            dayCount = 29;
+        } else {
+            dayCount = 28;
+        }
+        break;
+    default:
+        dayCount = -1;// invalid month
+}
+
+console.log(dayCount);
+//29 - bissextile , also 28 days bissextile
