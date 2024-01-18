@@ -1298,3 +1298,158 @@ switch(month){
 
 console.log(dayCount);
 //29 - bissextile , also 28 days bissextile
+
+//76 - WHILE LOOP
+
+//syntax
+
+while(expression) {
+    statement1;
+};
+
+let count = 1; // store
+while (count < 10) {   // condition
+    console.log(count); 
+    count += 2;   //increment
+};
+
+//1 3 5 7 9
+
+//77 - DO WHILE LOOP 
+//execution after of the condition
+//syntax
+do {
+    statement1;
+} while (expression);
+
+let count = 0;
+do {
+    console.log(count);
+    count++;
+} while (count < 5);
+
+//0 1 2 3 4
+
+//78 - example DO WHILE
+const MIN = 1;
+const MAX = 10;
+
+let secretnumber = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN; //value dont equal 0.
+
+let guesses = 0; 
+
+let hint = ''; //for storing number the guess
+
+let number = 0; //for storing hint;
+
+do {
+    //get input from user
+    let input = prompt(`Please enter a number between ${MIN} and ${MAX}` + hint);
+
+    number = parseInt(input); //input integer
+
+    guesses++; //increase the number of guesses;
+
+    if (number > secretnumber) {
+        hint = ', and less than' + number;
+    } else if (number < secretnumber) {
+        hint = ', and greater than' + number;
+    } else if (number == secretnumber) {
+        alert(`Bravo you're correct after ${guesses} guess(es)`);
+    }
+} while(number != secretnumber);
+
+//79 - FOR LOOP STATEMENT
+
+for (initializer; condition; iterator) {
+    statements;
+}
+
+//EXPRESSION IS OPTIONAL
+for ( ;  ; ){
+    statements;
+}
+for (let i = 1; i < 5; i++) {
+    console.log(i);
+}
+//1 2 3 4
+
+//can to user 
+let j = 1;
+for ( ;j < 10; j+=2) {
+    console.log(j)
+}
+//1 3 5 7 9
+
+//79 - EXAMPLES FOR LOOP STATEMENT
+
+//can to user too
+for (let j = 1; ; j+=2) {
+    console.log(j);
+    if (j > 10){
+        break;
+    }
+}
+//1 3 5 7 9
+let j = 1;
+for (;;) {
+    if(j > 10){
+        break;
+    }
+    console.log(j);
+    j += 2;
+}
+
+
+let sum = 0;
+for(let i = 0; i <= 9; i++, sum+=i);
+console.log(sum);
+// 55
+
+
+//80. Break statement for loops such as FOR, DO WHILE, WHILE , SWITCH
+//BREAK AND OUTER
+
+for(let i = 0; i < 5; i++){
+    console.log(i);
+    if(i == 2) {
+        break;
+    }
+}
+//0 1 2
+
+
+//81 - NESTED TO LOOP
+
+//NESTED
+for (let i = 1; i <= 3; i++) {
+    for(let j = 1; j <= 3, j++){
+        console.log(i,j);
+    }
+}  
+// 1 1
+// 1 2
+// 1 3 -> 
+// 2 1  ->
+// 2 2
+// 2 3 ->
+// 3 1
+// 3 2
+// 3 3 -> 
+//
+
+for (let i = 1; i <= 3; i++){
+    for(let j = 1; j <=3 ; j++){
+        if(i + j == 4){
+            break; //break do j volta pro i.
+        }
+        console.log(i, j);
+    }   
+}
+ // 1 1
+// 1 2
+//  -> break for loop FOR that contain 'j' variable. 
+// 2 1 start loop again that contain 'i' variable!
+// -> break ever loop!
+//     break 
+        
