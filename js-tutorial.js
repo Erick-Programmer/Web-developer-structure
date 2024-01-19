@@ -1452,4 +1452,43 @@ for (let i = 1; i <= 3; i++){
 // 2 1 start loop again that contain 'i' variable!
 // -> break ever loop!
 //     break 
-        
+
+//82 - Identifier that where it's happen break.
+// in this code, the break is have to started on outer word.
+outer: for (let i = 1; i <= 3; i++) {
+    for(let j =1; j <= 3; j++) {
+        if (i + j == 4) {
+            break outer;
+        }
+        console.log(i, j);
+    }
+}
+
+// 1 1
+// 1 2
+//  break
+
+//83 - Break for the while loop
+let i = 0;
+while (i < 5) {
+    i++;
+    console.log(i);
+    if (i == 3) {
+        break;
+    }
+}
+// 1 2 3 break
+
+//84 - Break for the Do While Loop
+let i = 0;
+do {
+    i++;
+    console.log(i);
+    if (i==3) {
+        break;
+    }
+} while(i < 5);
+
+// 1 2 3 break
+
+//85 - Continue
