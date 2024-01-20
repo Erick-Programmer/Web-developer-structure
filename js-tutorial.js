@@ -1491,4 +1491,92 @@ do {
 
 // 1 2 3 break
 
-//85 - Continue
+//85 - Continue - For loop
+
+//inside a loop, continue is going for next iteration.
+if(condition) {
+    continue;
+}
+for(let i = 0; i < 10; i++) {
+    if(i % 2 == 0){
+        continue;
+    }
+    console.log(i); //when i = 0 to go for the 1. next interation
+}
+// 1
+// 3
+// 5
+// 7
+// 9
+
+//86 - continue - with While Loop
+let i = 0;
+while(i < 10) {
+    i++; //iteration on the final
+    if (i % 2 === 0){
+        continue;  //jump
+    }
+    console.log(i);
+}
+
+//when i = 0 for 1 => 
+// i = 2 => 3;
+ // 1
+// 3
+// 5
+// 7
+// 9
+
+//87 - NESTED for continue
+// for loop when this broken, back for the for loop and second loop inside, 
+// iterator reset for one value. j == 1
+outer: for(let i = 1; i < 4; i++){
+    for (let j = 1; j < 4; j++){
+        if(i + j == 3) continue outer; //next iteration go to outer word.
+        console.log(i,j);
+    }
+}
+
+//1 1
+//3 1
+//3 2
+//3 3
+
+//88 - COMMA OPERATOR;
+
+//ever return the right value
+
+let result = (10, 10 + 20);
+console.log(result);
+//30.
+
+let x = 10;
+let y = (x++, x + 1); //in final expression iterou!
+console.log(x, y);
+// 11 12
+//value for x variable with iterator, final change.
+
+//as well
+let x = 10;
+x++;
+let y = x + 1;
+console.log(x, y);
+
+let board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let s = '';
+for (let i = 0, j = 1; i < board.length; i++, j++) {
+    s += board[i] + ' '; //store in array by index.
+    if (j % 3 == 0) {
+        console.log(s);
+        s = '';
+    }
+}
+
+// 1 2 3
+// 4 5 6
+// 7 8 9
+
+
+//81 - function
+
