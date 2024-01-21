@@ -1580,3 +1580,36 @@ for (let i = 0, j = 1; i < board.length; i++, j++) {
 
 //81 - function
 
+//Syntax
+function functionName (parameters) {
+    //function body
+}
+
+//zero parameters
+function say(){
+}
+
+///with parameters
+function square(o){
+}
+
+//function receive two parameters
+function add (a,b){
+
+}
+
+function say (message) {
+    console.log(message);
+}
+
+//call function
+functionName(arguments);
+
+say('Hello'); //all function in javascript return undefined
+
+function diga(message) {
+    console.log(message);
+}
+let result = diga('hello');
+console.log('result: ', result); //return right value;
+//result:undefined
