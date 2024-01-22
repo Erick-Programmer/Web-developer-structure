@@ -1613,3 +1613,131 @@ function diga(message) {
 let result = diga('hello');
 console.log('result: ', result); //return right value;
 //result:undefined
+
+//82 - return more used in function
+function add (e , f){
+    return e + f;
+}
+
+//call function
+let sum = add (10,20);
+console.log('sum: ', sum); // sum: 30
+
+//83 - if - else if for function
+function compare (a, b){
+    if (a > b) {
+        return -1;
+    }else if (a < b) {
+        return 1;
+    } else {
+        return 0
+    }
+}
+
+//84 - call function without return
+function t(message) {
+    if (!message){
+        return;
+    }
+    console.log(message); //return nothing
+}
+
+// 85 - value multiples
+function add_1 () { //java engine understand that between () have arguments.
+    let sum = 0
+    for(let i = 0; i < arguments.length; i++){
+        sum += arguments[i]
+    }
+    return sum;
+}
+
+console.log(add_1(1,2)); //3
+console.log(add_1(1,2,3,4,5));//15
+
+//86 - call function before declare
+
+showMe()
+
+function showMe(){
+    console.log('an hoisting example');
+}
+
+//87 - call function - examples
+
+function add (a , b) {
+    return a + b;
+}
+
+//by refer
+var sum = add;
+let result = sum(10, 20); //the variable with arguments that function refer.
+console.log(result); //30;
+
+//normally
+let result = sum(10, 20); 
+console.log(result); //30
+
+//pass function for other function
+function add (a , b) {
+    return a + b;
+}
+
+var sum = add;
+
+function average(a, b, fn) {
+    return fn(a , b) / 2; //function return
+}
+
+let result = average (10, 20, sum);
+console.log(result); //15
+
+//88 - example function called
+
+//returning function this one function
+function compareBy(propertyName){
+    return function (a, b){
+        let x = a[propertyName];
+        let y = b[propertyName];
+
+        if (x > y){
+            return 1;
+        }else if (x < y){
+            return -1;
+        }else {
+            return 0;
+        }
+    };
+}
+
+let products = [ //object
+    {name: 'iphone', price: 900},
+    {name: 'samsung galaxy', price: 850},
+    {name: 'sony experia', price: 700},
+];
+console.log('products sorted by name: ');
+products.sort(compareBy('name'));
+console.table(products);
+// by name property
+┌─────────┬──────────────────┬───────┐
+│ (index) │ name │ price │
+├─────────┼──────────────────┼───────┤
+│ 0 │ 'Samsung Galaxy' │ 850 │ //tenha valor maior nos caracteres
+│ 1 │ 'Sony Xperia' │ 700 │//2º tem valor maior nos caracteres
+│ 2 │ 'iPhone' │ 900 │
+└─────────┴──────────────────┴───────┘
+
+console.log('Products sorted by price: ');
+products.sort(compareBy('price'));
+console.table(products);
+
+console.log('Products sorted by price:')
+┌─────────┬──────────────────┬───────┐
+│ (index) │ name │ price │
+├─────────┼──────────────────┼───────┤
+│ 0 │ 'Sony Xperia' │ 700 │
+│ 1 │ 'Samsung Galaxy' │ 850 │
+│ 2 │ 'iPhone' │ 900 │
+└─────────┴──────────────────┴───────┘
+
+//89 two functions 
+
