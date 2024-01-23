@@ -1709,7 +1709,7 @@ function compareBy(propertyName){
     };
 }
 
-let products = [ //object
+let products = [ //array vector
     {name: 'iphone', price: 900},
     {name: 'samsung galaxy', price: 850},
     {name: 'sony experia', price: 700},
@@ -1721,8 +1721,8 @@ console.table(products);
 ┌─────────┬──────────────────┬───────┐
 │ (index) │ name │ price │
 ├─────────┼──────────────────┼───────┤
-│ 0 │ 'Samsung Galaxy' │ 850 │ //tenha valor maior nos caracteres
-│ 1 │ 'Sony Xperia' │ 700 │//2º tem valor maior nos caracteres
+│ 0 │ 'Samsung Galaxy' │ 850 │ //high values by characteres
+│ 1 │ 'Sony Xperia' │ 700 │//
 │ 2 │ 'iPhone' │ 900 │
 └─────────┴──────────────────┴───────┘
 
@@ -1739,5 +1739,150 @@ console.log('Products sorted by price:')
 │ 2 │ 'iPhone' │ 900 │
 └─────────┴──────────────────┴───────┘
 
-//89 two functions 
+//89- function thats return function - example
 
+function cmToIn(length){
+    return length / 2.54;
+}
+function inToCm(length){
+    return length * 2.54;
+}
+function convert(fn, length) {
+    return fn(length);
+}
+
+let inches = convert(cmToIn, 10);
+console.log(inches);
+//3.937007874015748
+
+let cm = convert(inToCm, 10);
+console.log(cm);
+//25.4
+
+//90. anonymous function
+//unnamed function
+//syntax
+function () {
+    //
+}
+
+let show = function() { //object variable
+    console.log('Anonymous function');
+}
+show(); //anonymous function
+
+setTimeOut(function(){  //settimeout receive argument function and mili seconds
+    console.log('Execute later after 1 second')
+}, 1000);
+
+//execute immediately ()();
+(function(){ //parenteses 
+    console.log('life');
+})();  //life - ()()
+
+let person1 = {
+    firstName11: 'usa',
+    lastName22: 'oxi'
+};
+
+(function(){
+    console.log(person.firstName + ' ' + person.lastName);
+})(person); //(arguments - object define;
+
+//91 - arrow functions + unnamed function / anonymous function
+
+let prhase  = function() {
+    console.log('Anonymous Function');
+}
+
+//or
+
+let prhase = () => console.log('Anonymous function');
+
+//similar
+function add(a, b) {
+    return a + b; 
+}
+let similar = (a, b) => a + b;
+let ola = (f, g, h) => f + g + h;
+
+//92. undestand javascript value assign and refer assign
+
+//by value
+function square(x){
+    x = x * x;
+    return = x;
+}
+
+let y = 10; //global variable
+let result = square(y);
+
+console.log(result); //100
+console.log(y); // 10
+
+//by refer 
+let person = {
+    name: 'John',
+    age: 25,    //local variable
+};
+
+function increaseAge(obj){
+    obj.age += 1; //local variable;
+}
+
+increaseAge(person);
+
+console.log(person); 
+//{ name: 'John', age: 26 }
+
+///arguments of the function is local variables
+
+//93. recursive functions
+function recurse() {
+    recurse();
+}
+
+//define one conditional for loop stop.
+function recurse() {
+    if (condition){
+
+    } else {
+        recurse();
+    }
+}
+// generally used to broken structures high for binary three, algorithms
+function countDown(fromNumber){
+    console.log(fromNumber);
+    countDown(fromNumber-1);
+}
+countDown(3); // eternal loop
+//        //Uncaught RangeError: Maximum call stack size exceeded
+
+function countDown (fromNumber){
+    console.log(fromNumber);
+    let nextNumber = fromNumber - 1;
+    if (nextNumber > 0) {
+        countDown(nextNumber); //recurse
+    }
+}
+countDown(3); 
+//3
+//2
+//1
+
+//94. function return one value null it's not function
+let newYearCountDown = countDown;  //value return null , dont refer
+countDown = null;
+newYearCountDown(10);
+//Uncaught TypeError: countDown is not a function
+// when its  value of one function recursive equal null, its will get to show error.
+
+//example ...natural numbers with recurse
+function sum (n) {
+    if(n <= 1) {
+        return n;
+    }
+    return n + sum(n - 1);
+}
+
+console.log(sum(3)); //6
