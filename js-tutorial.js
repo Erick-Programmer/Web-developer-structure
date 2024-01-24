@@ -1262,7 +1262,7 @@ switch(day) {
 
 console.log(dayName); //'Tuesday'
 
-//75. switch case example II
+//75.2 switch case example II
 
 let year = 2016;
 let month = 2;
@@ -1381,7 +1381,7 @@ for ( ;j < 10; j+=2) {
 }
 //1 3 5 7 9
 
-//79 - EXAMPLES FOR LOOP STATEMENT
+//79.1 - EXAMPLES FOR LOOP STATEMENT
 
 //can to user too
 for (let j = 1; ; j+=2) {
