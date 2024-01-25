@@ -1262,7 +1262,7 @@ switch(day) {
 
 console.log(dayName); //'Tuesday'
 
-//75.2 switch case example II
+//75. switch case example II
 
 let year = 2016;
 let month = 2;
@@ -1381,7 +1381,7 @@ for ( ;j < 10; j+=2) {
 }
 //1 3 5 7 9
 
-//79.1 - EXAMPLES FOR LOOP STATEMENT
+//79 - EXAMPLES FOR LOOP STATEMENT
 
 //can to user too
 for (let j = 1; ; j+=2) {
@@ -1886,3 +1886,50 @@ function sum (n) {
 }
 
 console.log(sum(3)); //6
+
+//95 - Default Parameters 
+function fn(param1= default1, paramet2= default2,...){
+}
+//we can to defining the value and after to change in the call
+
+function say(message='hi'){
+    console.log(message);
+}
+say(); //hi
+say('hello'); //hello
+
+function yes(message1){
+    console.log(message1);
+}
+//undefined
+
+function bibe(clean) {  //              ?(ask) if true or false
+    clean = typeof clean !== 'undefined' ? clean : 'hi';
+    console.log(clean);
+}
+bibe(); //hi - because its clean is undefined, not declared value for parameter
+
+//example of function that creating a div with default values.
+function createDiv (height = '100px', width = '100px', border = 'solid 1 px red') {
+    let div = document.createElement('div');
+    div.style.height = height;
+    div.style.width = width;
+    div.style.border = border;
+    document.body.appendChild(div);
+    return div;
+}
+//change third value. and undefined maintain the default values.
+//the div is have create with 2 default values and third parameters changed.
+createDiv(undefined, undefined, 'solid 5px black');
+
+//96 - examples with default parameters
+function put(toy, toyBox = []) {
+    toyBox.push(toy);
+    return toyBox;
+}
+// same its default parameters don't have called , continue is there..
+console.log(put('Toy Car'));
+// ["Toy Car"]
+console.log(put('Teddy Bear'));
+// ['Teddy Bear']
+
