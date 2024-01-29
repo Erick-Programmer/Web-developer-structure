@@ -1933,3 +1933,60 @@ console.log(put('Toy Car'));
 console.log(put('Teddy Bear'));
 // ['Teddy Bear']
 
+
+//97 - function with default value
+
+function date(d = today()) {
+    console.log(d);
+}
+
+function today(){
+    return (new Date()).toLocaleDateString('en-US');
+}
+
+date(); //today date.
+
+//function mandatory with default value, its without value, the function will throw one error.
+function requiredArg(){
+    throw new Error('The argument is required');
+}
+
+function add(x = requiredArg(), y = requiredArg()){
+    return x + y;
+}
+add(10); //error
+add(10, 20); //ok
+
+function add (x = 1, y = x, z = x + y) {
+    return x + y + z;
+}
+console.log(add()); //4
+
+//98 - parameter that don't declaring obtain error.
+
+function subtract (x = y, y = 1) { //y variable could to be before declared;
+    return x - y;   
+} //9 
+
+//functions is return default values as parameters of other functions.
+let taxRate = () => 0.1;
+
+let getPrice = function (price, tax = price * taxRate()) {
+    return price + tax;
+}
+
+let fullPrice = getPrice(100);
+console.log(fullPrice); //110
+
+//objects as arguments
+function add (x, y = 1 , z = 2){
+    console.log(arguments.length); //ojb
+    return x + y + z;
+}
+add(10); //1 
+add(10, 20);  //2 
+add(10, 20, 30); //3
+
+//99 - OPP -  Objects Oriented Programming.
+
+//all
