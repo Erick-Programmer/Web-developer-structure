@@ -1989,4 +1989,129 @@ add(10, 20, 30); //3
 
 //99 - OPP -  Objects Oriented Programming.
 
-//all
+//Objects is contain key and value pair.
+//Methods describe objects actions.
+
+//method greet()
+let person = {
+    firstName: 'Erick',
+    lastName: 'Rosario',
+};
+person.greet = function() {
+    console.log('Hello');
+}
+person.greet();
+//'Hello
+
+//define methods through of the properties value.
+
+let person = {
+    firstName: 'Carlos',
+    lastName: 'Rosario',
+    greet: function() {
+        console.log('Hello World');
+    },
+};
+
+//or
+
+let person = {
+    firstName: 'carlos',
+    lastName: 'rosario',
+    greet() {
+        console.log('Hello, World');
+    },
+}
+
+person.greet();
+
+//when this functions is property, its to change in method.
+
+//100 - object this is have value as reference.
+
+let person = {
+    firstName: 'carlos',
+    lastName: 'rosario',
+    greet: function(){
+        console.log('Hello, World');
+    },
+    getFullName: function() {
+        return this.firstName + ' ' + this.lastName;
+    },
+};
+
+console.log(person.getFullName());
+//carlos rosario
+
+//101 - constructor function
+
+//syntax to create a new object
+
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+}
+
+function Person (firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+//creating one instance
+// variable = New operator + class (parameters)
+
+let person = new Person('John', 'Doe');
+
+//based construction
+function Person (firstName, lastName) {  
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+//i can to creating multiples objects
+let person1 = new Person('carlos', 'rosario');
+let person2 = new Person('John', 'Doe');
+
+//102 - add methods that data handle.
+
+function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    this.getFullName = function() {
+        return this.firstName + ' ' + this.lastName;
+    };
+}
+
+//creating new instance
+let person3 = new Person('carlos', 'rosario');
+console.log(person3.getFullName());
+
+//when we are calling person without new constructor
+//we can to used new.target to reference
+function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    this.getFullName = function() {
+        return this.firstName + ' ' + this.lastName;
+    };
+}
+
+//creating new instance
+let person = Person('a', 'b');
+console.log(person3.getFullName());
+//null or undefined
+
+//as its dont new. target will throw one message.
+function Person(firstName, lastName) {
+    if (!new.target) {
+        throw Error('cannot be called without the new keyword');
+    }
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+//need of the new object.
+let person = Person('jhon', 'rosario');
+console.log(person.firstName);
+//Error: cannot be called without the new keyword
